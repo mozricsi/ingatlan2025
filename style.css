@@ -2,35 +2,90 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+header {
+    background-color: #007BFF;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
 .container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    width: 90%;
+    margin: 2rem auto;
 }
-.property {
-    background: #fff;
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+.ads {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
 }
-.property h2 {
-    margin: 0 0 10px;
+
+.ad {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.property p {
-    margin: 5px 0;
+
+.ad h3 {
+    margin: 0 0 0.5rem 0;
 }
-.property button {
+
+.ad p {
+    margin: 0 0 1rem 0;
+}
+
+.ad button {
     background-color: #007BFF;
-    color: #fff;
+    color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
     cursor: pointer;
-    border-radius: 5px;
 }
-.property button:hover {
+
+.ad button:hover {
     background-color: #0056b3;
+}
+
+.form-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container label {
+    display: block;
+    margin: 0.5rem 0 0.2rem;
+}
+
+.form-container input, .form-container textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container button {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #218838;
 }

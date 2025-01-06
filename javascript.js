@@ -1,48 +1,44 @@
-const properties = [
-    {
-        title: "Modern lakás Budapest belvárosában",
-        location: "Budapest, V. kerület",
-        rooms: 3,
-        size: 75,
-        price: "85M Ft"
-    },
-    {
-        title: "Családi ház kerttel",
-        location: "Debrecen, kertváros",
-        rooms: 5,
-        size: 120,
-        price: "68M Ft"
-    },
-    {
-        title: "Panorámás apartman",
-        location: "Pécs, Mecsekoldal",
-        rooms: 2,
-        size: 55,
-        price: "45M Ft"
-    },
-    // 9 további hirdetés
-];
+const adsContainer = document.getElementById('ads');
+const adForm = document.getElementById('adForm');
 
-const container = document.getElementById('properties');
 
-properties.forEach(property => {
-    const propertyDiv = document.createElement('div');
-    propertyDiv.classList.add('property');
-    propertyDiv.innerHTML = `
-        <h2>${property.title}</h2>
-        <p><strong>Helyszín:</strong> ${property.location}</p>
-        <p><strong>Szobák száma:</strong> ${property.rooms}</p>
-        <p><strong>Alapterület:</strong> ${property.size} m²</p>
-        <p><strong>Ár:</strong> ${property.price}</p>
-        <button onclick="sendInquiry('${property.title}')">Érdeklődöm</button>
+adForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+
+    const ad = document.createElement('div');
+    ad.classList.add('ad');
+
+    ad.innerHTML = `
+        <h3>${title}</h3>
+        <p>${description}</p>
+        <button onclick="sendInterest('${title}')">Érdekel</button>
     `;
-    container.appendChild(propertyDiv);
+
+    adsContainer.appendChild(ad);
+
+    adForm.reset(); 
 });
 
-function sendInquiry(propertyTitle) {
-    const email = "mozric721@hengersor.hu";
-    const subject = `Érdeklődés: ${propertyTitle}`;
-    const body = `Tisztelt Hirdető,\n\nÉrdeklődöm a következő ingatlan iránt: ${propertyTitle}. Kérem, vegyék fel velem a kapcsolatot.\n\nÜdvözlettel,\n[Az Ön neve]`;
 
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+function sendInterest(adTitle) {
+    const name = prompt("Add meg a neved:");
+    const address = prompt("Add meg az e-mail címed:");
+    const phone = prompt("Add meg a telefonszámod:");
+
+    if (name && address && phone) {
+        const emailBody = `
+            Érdeklődő adatai:
+            Név: ${name}
+            Cím: ${address}
+            Telefonszám: ${phone}
+
+            Érdeklődés a következő hirdetés iránt: ${adTitle}
+        `;
+        window.location.href = `mailto:iskola@example.com?subject=Érdeklődés: ${adTitle}&body=${encodeURIComponent(emailBody)}`;
+    } else {
+        alert("Minden adatot meg kell adnod az érdeklődéshez!");
+    }
 }

@@ -5,16 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <title>Ingatlan Hirdetések</title>
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Ingatlan Hirdetések</h1>
-        <div id="properties">
-            <!-- Hirdetések helye -->
+    </header>
+
+    <div class="container">
+        <div class="ads" id="ads">
+            
+            <div class="ad">
+                <img src="családiház.jfif" alt="Eladó családi ház" style="width: 100%; height: 200px; object-fit: cover;">
+                <h3>Eladó családi ház</h3>
+                <p>100 m²-es családi ház nagy kerttel, csendes környéken. Ár: 50.000.000 Ft.</p>
+                <button onclick="sendInterest('Eladó családi ház')">Érdekel</button>
+            </div>
+            <div class="ad">
+                <img src="kiadolakas.jfif" alt="Kiadó lakás" style="width: 100%; height: 200px; object-fit: cover;">
+                <h3>Kiadó lakás</h3>
+                <p>2 szobás lakás a belvárosban, teljesen berendezett. Ár: 200.000 Ft/hó.</p>
+                <button onclick="sendInterest('Kiadó lakás')">Érdekel</button>
+            </div>
+            <div class="ad">
+                <img src="nyaralo.jpg" alt="Eladó nyaraló" style="width: 100%; height: 200px; object-fit: cover;">
+                <h3>Eladó nyaraló</h3>
+                <p>Balaton-parti nyaraló, gyönyörű kilátással. Ár: 80.000.000 Ft.</p>
+                <button onclick="sendInterest('Eladó nyaraló')">Érdekel</button>
+            </div>
+            <div class="ad">
+                <img src="iroda.jfif" alt="Kiadó iroda" style="width: 100%; height: 200px; object-fit: cover;">
+                <h3>Kiadó iroda</h3>
+                <p>Modern irodahelyiség, 50 m². Ár: 150.000 Ft/hó.</p>
+                <button onclick="sendInterest('Kiadó iroda')">Érdekel</button>
+            </div>
+            <div class="ad">
+                <img src="telek.webp" alt="Eladó telek" style="width: 100%; height: 200px; object-fit: cover;">
+                <h3>Eladó telek</h3>
+                <p>1000 m²-es építési telek, jó infrastruktúrával. Ár: 20.000.000 Ft.</p>
+                <button onclick="sendInterest('Eladó telek')">Érdekel</button>
+            </div>
+            <div class="ad">
+                <img src="sorhaz.jfif" alt="" style="width: 100%; height: 200px; object-fit: cover;">
+                <h3>Kiadó garázs</h3>
+                <p>Biztonságos sorház a belvárosban. Ár: 3000.000 Ft/hó.</p>
+                <button onclick="sendInterest('Kiadó Sorház')">Érdekel</button>
+            </div>
+            <div class="ad">
+                <img src="penthouse.jfif" alt="Eladó penthouse" style="width: 100%; height: 200px; object-fit: cover;">
+                <h3>Eladó penthouse</h3>
+                <p>Luxus penthouse a város szívében. Ár: 120.000.000 Ft.</p>
+                <button onclick="sendInterest('Eladó penthouse')">Érdekel</button>
+            </div>
+            <div class="ad">
+                <img src="uzletihelyiseg.jfif" alt="Kiadó üzlethelyiség" style="width: 100%; height: 200px; object-fit: cover;">
+                <h3>Kiadó üzlethelyiség</h3>
+                <p>150 m²-es üzlethelyiség, forgalmas helyen. Ár: 300.000 Ft/hó.</p>
+                <button onclick="sendInterest('Kiadó üzlethelyiség')">Érdekel</button>
+            </div>
+            <div class="ad">
+                <img src="sorhaz2.jfif" alt="Eladó sorház" style="width: 100%; height: 200px; object-fit: cover;">
+                <h3>Eladó sorház</h3>
+                <p>Újszerű sorház csendes lakóparkban. Ár: 45.000.000 Ft.</p>
+                <button onclick="sendInterest('Eladó sorház')">Érdekel</button>
+            </div>
+            <div class="ad">
+                <img src="studiolakas.jfif" alt="Kiadó stúdiólakás" style="width: 100%; height: 200px; object-fit: cover;">
+                <h3>Kiadó stúdiólakás</h3>
+                <p>Egyszobás, modern stúdiólakás. Ár: 120.000 Ft/hó.</p>
+                <button onclick="sendInterest('Kiadó stúdiólakás')">Érdekel</button>
+            </div>
+            <div class="ad">
+                <img src="luxusvilla.jfif" alt="Eladó luxusvilla" style="width: 100%; height: 200px; object-fit: cover;">
+                <h3>Eladó luxusvilla</h3>
+                <p>Privát medencés luxusvilla. Ár: 250.000.000 Ft.</p>
+                <button onclick="sendInterest('Eladó luxusvilla')">Érdekel</button>
+            </div>
+            <div class="ad">
+                <img src="OIP.jfif" alt="Kiadó apartman" style="width: 100%; height: 200px; object-fit: cover;">
+                <h3>Kiadó apartman</h3>
+                <p>Tengerparti apartman, teljes felszereléssel. Ár: 300.000 Ft/hó.</p>
+                <button onclick="sendInterest('Kiadó apartman')">Érdekel</button>
+            </div>
+            
+
+        <div class="form-container">
+            <h2>Új hirdetés felvitele</h2>
+            <form id="adForm">
+                <label for="title">Cím:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="description">Leírás:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <button type="submit">Hirdetés hozzáadása</button>
+            </form>
         </div>
     </div>
-
+    <script src="javascript.js"></script>
 </body>
 </html>
-
